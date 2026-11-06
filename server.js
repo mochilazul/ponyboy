@@ -16,6 +16,9 @@ app.use(express.json());
 const arquivoJSON = path.join(__dirname, 'file.json');
 
 // RECEBER DADOS
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'comentario.html'));
+});
 app.post('/receber', (req, res) => {
     let dados = [];
 
