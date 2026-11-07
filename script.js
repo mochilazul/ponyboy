@@ -1,36 +1,40 @@
-document.querySelector(".form-submit").addEventListener("click", () => {
-    var today = new Date()
-    var datebla = today.getDay() + "." + today.getMonth() + "." + today.getFullYear() + ", " + today.getHours() + "h" + today.getMinutes() + "m"
-    console.log(datebla)
-    var info = {
-        text: document.querySelector(".form-text").value,
-        name: document.querySelector(".form-name").value,
+var today = new Date()
+var datebla = today.getDay() + "." + today.getMonth() + "." + today.getFullYear() + ", " + today.getHours() + "h" + today.getMinutes() + "m"
+document.querySelector(".form-submit").addEventListener("click", async () => {
+    const info = {
+        text: document.querySelector(".form-text").value.trim(),
+        name: document.querySelector(".form-name").value.trim(),
         date: datebla
-        
+    };
+
+    if (!info.name || !info.text) {
+        alert("Preencha seu nome e comentário!");
+        return;
     }
-    console.log(info)
-    fetch('http://127.0.0.1:3000/receber', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(info)
-    })
-    .then(res => res.json())
-    .then(console.log)
-    .catch(console.error);
-    fetch('http://127.0.0.1:3000/dados')
-.then(res => res.json())
-.then(dados => {
 
-    console.log(dados[0].name); // João
-    console.log(dados[1].name); // Maria
+    try {
+        const resposta = await fetch("/receber", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(info)
+        });
 
-    // Percorrer todos os dados
-    dados.forEach(item => {
-        console.log(item.name);
-        console.log(item.text);
-    });
+        if (!resposta.ok) {
+            throw new Error("Erro ao enviar comentário");
+        }
 
+        const resultado = await resposta.json();
+
+        console.log(resultado);
+        alert("Comentário enviado!");
+
+        document.querySelector(".form-name").value = "";
+        document.querySelector(".form-text").value = "";
+
+    } catch (erro) {
+        console.error("Erro:", erro);
+        alert("Não foi possível enviar o comentário.");
+    }
 });
-})
