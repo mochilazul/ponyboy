@@ -3,8 +3,8 @@ document.querySelector(".form-submit").addEventListener("click", () => {
     var datebla = today.getDay() + "." + today.getMonth() + "." + today.getFullYear() + ", " + today.getHours() + "h" + today.getMinutes() + "m"
     console.log(datebla)
     var info = {
-        text: document.querySelector(".form-name").value,
-        name: document.querySelector(".form-text").value,
+        text: document.querySelector(".form-text").value,
+        name: document.querySelector(".form-name").value,
         date: datebla
         
     }
