@@ -1,8 +1,12 @@
 document.querySelector(".form-submit").addEventListener("click", () => {
+    var today = new Date()
+    var datebla = today.getDay() + "." + today.getMonth() + "." + today.getFullYear() + ", " + today.getHours() + "h" + today.getMinutes() + "m"
+    console.log(datebla)
     var info = {
         text: document.querySelector(".form-name").value,
         name: document.querySelector(".form-text").value,
-        data: new Date()
+        date: datebla
+        
     }
     console.log(info)
     fetch('http://127.0.0.1:3000/receber', {
