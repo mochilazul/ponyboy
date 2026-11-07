@@ -1,0 +1,77 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(27, 32, 63);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+html {
+    color: rgb(27, 32, 63);
+    font-family: "Redaction 50", serif;
+    width: 100%;
+    height: 100%;
+}
+main {
+    padding-bottom: 3rem;
+    width: 100%;
+    min-height: auto;
+    height: fit-content;
+    background-color: rgb(27, 32, 63);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.h1  {
+    color: rgb(121, 184, 193);
+    font-size: 3em;
+}
+
+.comments-div {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.comments-box {
+    border: 8px solid rgb(57, 94, 135);
+    background-color: rgb(121, 184, 193);
+    margin: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+.comments-name {
+    margin-left: 1em;
+    font-size: 1.8em;
+    margin-top: 1.3rem;
+    margin-bottom: 0.2em;
+}
+.comments-text {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-left: 2em;
+    font-size: 2em;
+    font-weight: bold;
+}
+.comments-date {
+    margin-top: 0.2em;
+    margin-bottom: 1.3rem;
+    margin-right: 2em;
+    text-align: right;
+    font-size: 1.5em;
+}
+.refresh {
+    font-size: 2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-bottom: 1em;
+    font-family: "Redaction 50";
+    border: 4px solid rgb(57, 94, 135);
+    background-color: rgb(121, 184, 193);
+    box-shadow: 0px 0.5em 0px 0px rgb(57, 94, 135);
+}
+.refresh:active {
+    box-shadow: 0px 0em 0px 0px rgb(27, 32, 63);
+    transform: translateY(0.5em);
+}
